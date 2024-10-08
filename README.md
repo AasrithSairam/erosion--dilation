@@ -45,29 +45,29 @@ import cv2
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Step 1: Create a blank image
+
 image = np.zeros((400, 800, 3), dtype="uint8")
 
-# Step 2: Create the text using cv2.putText
+
 text = "Ponguru Aasrith Sairam"
 font = cv2.FONT_HERSHEY_SIMPLEX
 cv2.putText(image, text, (50, 150), font, 2, (255, 255, 255), 3)
 
-# Step 3: Create a structuring element (5x5 rectangular)
+
 kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (5, 5))
 
-# Step 4: Erode the image
+
 eroded_image = cv2.erode(image, kernel, iterations=1)
 
-# Step 5: Dilate the image
+
 dilated_image = cv2.dilate(image, kernel, iterations=1)
 
-# Convert images from BGR to RGB for Matplotlib
+
 image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 eroded_image_rgb = cv2.cvtColor(eroded_image, cv2.COLOR_BGR2RGB)
 dilated_image_rgb = cv2.cvtColor(dilated_image, cv2.COLOR_BGR2RGB)
 
-# Plot the original, eroded, and dilated images using Matplotlib
+
 plt.figure(figsize=(10, 5))
 
 plt.subplot(1, 3, 1)
